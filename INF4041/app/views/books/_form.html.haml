@@ -22,7 +22,13 @@
   .field
     = f.label :note
     %br
-      = f.number_field :note
+    -@book.notes << Note.new if @book.notes.where(book_reader: current_book_reader).empty?
+    =f.fields_for :notes do |fnote|
+      = fnote.hidden_field :id
+      = fnote.number_field :value
+      =fnote.hidden_field :book_reader_id, value: current_book_reader.id
+      = fnote.check_box :_destroy
+      \=fnote.select :book_reader_id, BookReader.all.map{|br| [br.email,br.id]}
   .field
     = f.label :cover
     %br

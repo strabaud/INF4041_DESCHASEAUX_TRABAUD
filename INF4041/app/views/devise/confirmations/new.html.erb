@@ -8,6 +8,16 @@
     <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %> 
   </div>
 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.email_field :name, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_name : resource.name) %> 
+  </div>
+
+  <div class="field">
+    <%= f.label :forename %><br />
+    <%= f.email_field :forename, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_forename : resource.forename) %> 
+  </div>
+
   <div class="actions">
     <%= f.submit "Resend confirmation instructions" %>
   </div>
