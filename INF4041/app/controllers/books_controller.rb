@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_filter :authenticate_book_reader!, except: [:index,:show]  
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
