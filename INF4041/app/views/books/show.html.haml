@@ -19,7 +19,9 @@
   = @book.nbreader
 %p
   %strong Notes:
-  = @book.notes
+  -@book.book_readers.each do |book_reader|
+    = "#{book_reader} a mis #{book_reader.notes.where(book: @book).first.value}"
+  \.notes.map{|note| note.value}.to_s
 
 = link_to 'Edit', edit_book_path(@book)
 |
