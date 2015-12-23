@@ -9,7 +9,7 @@ class Book < ActiveRecord::Base
   	validates :name, :author, presence: true
 
   	def note
-  		#notes.map{|note| note.value.to_i}.sum / notes.size unless notes.empty?
+  		notes.map{|note| note.value.to_i}.sum / notes.size unless notes.empty?
   	end
 
 end
