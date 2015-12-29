@@ -28,7 +28,7 @@
       = fnote.number_field :value
       =fnote.hidden_field :book_reader_id, value: current_book_reader.id
       = fnote.check_box :_destroy
-      \=fnote.select :book_reader_id, BookReader.all.map{|br| [br.email,br.id]}
+      /*=fnote.select :book_reader_id, BookReader.all.map{|br| [br.email,br.id]}*/
   .field
     = f.label :cover
     %br
